@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using BarcodeScanning;
+using Microsoft.Extensions.Logging;
 
 namespace BarcodeScanningNativeMauiLeak
 {
@@ -9,6 +10,7 @@ namespace BarcodeScanningNativeMauiLeak
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseBarcodeScanning()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -18,6 +20,8 @@ namespace BarcodeScanningNativeMauiLeak
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddTransient<ScannerLeakPage>();
 
             return builder.Build();
         }

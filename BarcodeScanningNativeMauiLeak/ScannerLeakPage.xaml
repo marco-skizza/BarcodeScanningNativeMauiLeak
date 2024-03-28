@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:scanner="clr-namespace:BarcodeScanning;assembly=BarcodeScanning.Native.Maui"
+             x:Class="BarcodeScanningNativeMauiLeak.ScannerLeakPage"
+             Title="ScannerLeakPage">
+
+    <Grid>
+
+        <scanner:CameraView
+            x:Name="MyCameraView"
+            OnDetectionFinished="MyCameraView_OnOnDetectionFinished"
+            AimMode="True"
+            CaptureQuality="Highest" />
+
+    </Grid>
+</ContentPage>
