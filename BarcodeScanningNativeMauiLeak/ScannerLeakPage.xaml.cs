@@ -29,6 +29,13 @@ public partial class ScannerLeakPage : ContentPage
         MyCameraView.CameraEnabled = false;
     }
 
+    private void OnUnloaded(object? sender, EventArgs e)
+    {
+#if ANDROID
+        MyCameraView.Handler?.DisconnectHandler();
+#endif
+    }
+
     protected override void OnHandlerChanging(HandlerChangingEventArgs args)
     {
         base.OnHandlerChanging(args);
@@ -38,7 +45,9 @@ public partial class ScannerLeakPage : ContentPage
             return;
         }
 
+#if IOS
         MyCameraView.Handler?.DisconnectHandler();
+#endif
     }
 
     ~ScannerLeakPage()

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:scanner="clr-namespace:BarcodeScanning;assembly=BarcodeScanning.Native.Maui"
              x:Class="BarcodeScanningNativeMauiLeak.ScannerLeakPage"
-             Title="ScannerLeakPage">
+             Title="ScannerLeakPage"
+             Unloaded="OnUnloaded">
 
     <Grid>
 
